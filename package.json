@@ -1,14 +1,14 @@
 {
-    "name": "zig",
-    "displayName": "Zig",
-    "description": "Language support for the Zig programming language",
+    "name": "zen",
+    "displayName": "Zen",
+    "description": "Language support for the Zen programming language",
     "version": "0.2.2",
-    "publisher": "tiehuis",
-    "icon": "images/zig-icon.png",
+    "publisher": "connectFree Corporation",
+    "icon": "images/zen-logo.png",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/zig-lang/vscode-zig"
+        "url": "https://github.com/zenlang/vscode-zen"
     },
     "engines": {
         "vscode": "^1.17.0"
@@ -17,31 +17,31 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:zig"
+        "onLanguage:zen"
     ],
     "main": "./out/extension",
     "contributes": {
         "languages": [
             {
-                "id": "zig",
+                "id": "zen",
                 "extensions": [
-                    ".zig"
+                    ".zen"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "zig",
-                "scopeName": "source.zig",
-                "path": "./syntaxes/zig.tmLanguage.json"
+                "language": "zen",
+                "scopeName": "source.zen",
+                "path": "./syntaxes/zen.tmLanguage.json"
             }
         ],
         "configuration": {
             "type": "object",
-            "title": "zig",
+            "title": "zen",
             "properties": {
-                "zig.buildOption": {
+                "zen.buildOption": {
                     "type": "string",
                     "default": "build",
                     "enum": [
@@ -50,27 +50,27 @@
                         "build-lib",
                         "build-obj"
                     ],
-                    "description": "Which build command Zig should use to build the code."
+                    "description": "Which build command Zen should use to build the code."
                 },
-                "zig.buildArgs": {
+                "zen.buildArgs": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "default": [],
-                    "description": "Extra arguments to passed to Zig."
+                    "description": "Extra arguments to passed to Zen."
                 },
-                "zig.buildFilePath": {
+                "zen.buildFilePath": {
                     "type": "string",
-                    "default": "${workspaceFolder}/build.zig",
-                    "description": "The path to build.zig. This is only required if zig.buildOptions = build."
+                    "default": "${workspaceFolder}/build.zen",
+                    "description": "The path to build.zen. This is only required if zen.buildOptions = build."
                 },
-                "zig.zigPath": {
+                "zen.zenPath": {
                     "type": "string",
                     "default": null,
-                    "description": "Set a custom path to the Zig binary. Defaults to 'zig' in your PATH."
+                    "description": "Set a custom path to the Zen binary. Defaults to 'zen' in your PATH."
                 },
-                "zig.revealOutputChannelOnFormattingError": {
+                "zen.revealOutputChannelOnFormattingError": {
                     "type": "boolean",
                     "default": true,
                     "description": "Should output channel be reaised on formatting error."

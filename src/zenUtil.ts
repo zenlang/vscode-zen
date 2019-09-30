@@ -121,7 +121,7 @@ export function execCmd
   }
 }
 
-const buildFile = 'build.zig';
+const buildFile = 'build.zen';
 
 export function findProj(dir: string, parent: string): string {
   if (dir === '' || dir === parent) {

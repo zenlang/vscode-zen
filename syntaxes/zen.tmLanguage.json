@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "zig",
-  "scopeName": "source.zig",
+  "name": "zen",
+  "scopeName": "source.zen",
   "fileTypes": [
-    "zig"
+    "zen"
   ],
   "patterns": [
     {
@@ -29,51 +29,51 @@
     "keywords": {
       "patterns": [
         {
-          "name": "keyword.storage.zig",
-          "match": "\\b(const|var|extern|packed|export|pub|noalias|inline|comptime|nakedcc|stdcallcc|volatile|align|linksection|threadlocal|allowzero)\\b"
+          "name": "keyword.storage.zen",
+          "match": "\\b(const|var|extern|packed|export|pub|noalias|inline|comptime|nakedcc|stdcallcc|volatile|align|linksection|threadlocal|allowzero|vtable)\\b"
         },
         {
-          "name": "keyword.structure.zig",
-          "match": "\\b(struct|enum|union)\\b"
+          "name": "keyword.structure.zen",
+          "match": "\\b(struct|enum|union|interface)\\b"
         },
         {
-          "name": "keyword.statement.zig",
+          "name": "keyword.statement.zen",
           "match": "\\b(break|return|continue|asm|defer|errdefer|unreachable|try|catch|async|await|suspend|resume|cancel)\\b"
         },
         {
-          "name": "keyword.conditional.zig",
+          "name": "keyword.conditional.zen",
           "match": "\\b(if|else|switch|and|or|orelse)\\b"
         },
         {
-          "name": "keyword.repeat.zig",
+          "name": "keyword.repeat.zen",
           "match": "\\b(while|for)\\b"
         },
         {
-          "name": "keyword.constant.default.zig",
+          "name": "keyword.constant.default.zen",
           "match": "\\b(null|undefined)\\b"
         },
         {
-          "name": "keyword.constant.bool.zig",
+          "name": "keyword.constant.bool.zen",
           "match": "\\b(true|false)\\b"
         },
         {
-          "name": "keyword.default.zig",
+          "name": "keyword.default.zen",
           "match": "\\b(fn|use|usingnamespace|test)\\b"
         },
         {
-          "name": "keyword.type.zig",
+          "name": "keyword.type.zen",
           "match": "\\b(bool|void|noreturn|type|error|anyerror|promise)\\b"
         },
         {
-          "name": "keyword.type.integer.zig",
+          "name": "keyword.type.integer.zen",
           "match": "\\b(f16|f32|f64|f128|u\\d+|i\\d+|isize|usize|comptime_int|comptime_float)\\b"
         },
         {
-          "name": "keyword.type.c.zig",
+          "name": "keyword.type.c.zen",
           "match": "\\b(c_short|c_ushort|c_int|c_uint|c_long|c_ulong|c_longlong|c_ulonglong|c_longdouble|c_void)\\b"
         },
         {
-          "name": "keyword.todo.zig",
+          "name": "keyword.todo.zen",
           "match": "\\b(TODO,XXX)\\b"
         }
       ]
@@ -81,19 +81,19 @@
     "operators": {
       "patterns":[
         {
-          "name": "keyword.operator.comparison.zig",
+          "name": "keyword.operator.comparison.zen",
           "match": "(\\b(and|or)\\b)|(==|!=)"
         },
         {
-          "name": "keyword.operator.arithmetic.zig",
+          "name": "keyword.operator.arithmetic.zen",
           "match": "(-%?|\\+%?|\\*%?|/|%)=?"
         },
         {
-          "name": "keyword.operator.bitwise.zig",
+          "name": "keyword.operator.bitwise.zen",
           "match": "(<<%?|>>|!|&|\\^|\\|)=?"
         },
         {
-          "name": "keyword.operator.special.zig",
+          "name": "keyword.operator.special.zen",
           "match": "(==|\\+\\+|\\*\\*|->)"
         }
       ]
@@ -101,12 +101,12 @@
     "comments": {
       "patterns":[
         {
-          "name": "comment.line.documentation.zig",
+          "name": "comment.line.documentation.zen",
           "begin": "//[!/](?=[^/])",
           "end": "$"
         },
         {
-          "name": "comment.line.double-slash.zig",
+          "name": "comment.line.double-slash.zen",
           "begin": "//",
           "end": "$"
         }
@@ -115,7 +115,7 @@
     "strings": {
       "patterns":[
         {
-          "name": "string.quoted.double.zig",
+          "name": "string.quoted.double.zen",
           "begin": "c?\"",
           "end": "\"",
           "patterns": [
@@ -125,12 +125,12 @@
           ]
         },
         {
-          "name": "string.multiline.zig",
+          "name": "string.multiline.zen",
           "begin": "c?\\\\\\\\",
           "end": "$"
         },
         {
-          "name": "string.quoted.single.zig",
+          "name": "string.quoted.single.zen",
           "match": "'([^'\\\\]|\\\\(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.))'"
         }
       ]
@@ -138,11 +138,11 @@
     "stringcontent": {
       "patterns": [
         {
-          "name": "constant.character.escape.zig",
+          "name": "constant.character.escape.zen",
           "match": "\\\\([nrt'\"\\\\]|(x[0-9a-fA-F]{2})|(u\\{[0-9a-fA-F]+\\}))"
         },
         {
-          "name": "invalid.illegal.unrecognized-string-escape.zig",
+          "name": "invalid.illegal.unrecognized-string-escape.zen",
           "match": "\\\\."
 
         }
@@ -151,27 +151,27 @@
     "numbers": {
       "patterns": [
         {
-          "name": "constant.numeric.float.zig",
+          "name": "constant.numeric.float.zen",
           "match": "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?[eE][+-]?[0-9_]+(f32|f64)?\\b"
         },
         {
-          "name": "constant.numeric.float.zig",
+          "name": "constant.numeric.float.zen",
           "match": "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?([eE][+-]?[0-9_]+)?(f32|f64)\\b"
         },
         {
-          "name": "constant.numeric.decimal.zig",
+          "name": "constant.numeric.decimal.zen",
           "match": "\\b[0-9][0-9_]*([ui](8|16|32|64|128|s|size))?\\b"
         },
         {
-          "name": "constant.numeric.hexadecimal.zig",
+          "name": "constant.numeric.hexadecimal.zen",
           "match": "\\b0x[a-fA-F0-9_]+([ui](8|16|32|64|128|s|size))?\\b"
         },
         {
-          "name": "constant.numeric.octal.zig",
+          "name": "constant.numeric.octal.zen",
           "match": "\\b0o[0-7_]+([ui](8|16|32|64|128|s|size))?\\b"
         },
         {
-          "name": "constant.numeric.binary.zig",
+          "name": "constant.numeric.binary.zen",
           "match": "\\b0b[01_]+([ui](8|16|32|64|128|s|size))?\\b"
         }
       ]
@@ -180,7 +180,7 @@
       "patterns": [
         {
           "comment": "Built-in functions",
-          "name": "support.function.builtin.zig",
+          "name": "support.function.builtin.zen",
           "match": "@[_a-zA-Z][_a-zA-Z0-9]*"
         }
       ]

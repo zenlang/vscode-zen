@@ -1,31 +1,31 @@
 'use strict';
 import * as vscode from 'vscode';
-import ZigCompilerProvider from './zigCompilerProvider';
-import { ZigFormatProvider, ZigRangeFormatProvider } from './zigFormat';
+import ZenCompilerProvider from './zenCompilerProvider';
+import { ZenFormatProvider, ZenRangeFormatProvider } from './zenFormat';
 
-const ZIG_MODE: vscode.DocumentFilter = { language: 'zig', scheme: 'file' };
+const ZEN_MODE: vscode.DocumentFilter = { language: 'zen', scheme: 'file' };
 
 export function activate(context: vscode.ExtensionContext) {
-    let compiler = new ZigCompilerProvider();
+    let compiler = new ZenCompilerProvider();
     compiler.activate(context.subscriptions);
-    vscode.languages.registerCodeActionsProvider('zig', compiler);
+    vscode.languages.registerCodeActionsProvider('zen', compiler);
 
-    const zigFormatStatusBar = vscode.window.createStatusBarItem(
+    const zenFormatStatusBar = vscode.window.createStatusBarItem(
         vscode.StatusBarAlignment.Left,
     );
-    const logChannel = vscode.window.createOutputChannel('zig');
+    const logChannel = vscode.window.createOutputChannel('zen');
     context.subscriptions.push(logChannel);
     context.subscriptions.push(
         vscode.languages.registerDocumentFormattingEditProvider(
-            ZIG_MODE,
-            new ZigFormatProvider(logChannel),
+            ZEN_MODE,
+            new ZenFormatProvider(logChannel),
         ),
     );
 
     context.subscriptions.push(
         vscode.languages.registerDocumentRangeFormattingEditProvider(
-            ZIG_MODE,
-            new ZigRangeFormatProvider(logChannel),
+            ZEN_MODE,
+            new ZenRangeFormatProvider(logChannel),
         ),
     );
 }

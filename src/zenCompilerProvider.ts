@@ -4,7 +4,7 @@ import * as path from 'path';
 import * as cp from 'child_process';
 import * as vscode from 'vscode';
 
-export default class ZigCompilerProvider implements vscode.CodeActionProvider {
+export default class ZenCompilerProvider implements vscode.CodeActionProvider {
     private diagnosticCollection: vscode.DiagnosticCollection;
 
     public activate(subscriptions: vscode.Disposable[]) {
@@ -29,12 +29,12 @@ export default class ZigCompilerProvider implements vscode.CodeActionProvider {
     }
 
     private doCompile(textDocument: vscode.TextDocument) {
-        if (textDocument.languageId !== 'zig') {
+        if (textDocument.languageId !== 'zen') {
             return;
         }
 
         let decoded = ''
-        let config = vscode.workspace.getConfiguration('zig');
+        let config = vscode.workspace.getConfiguration('zen');
         let buildOption = config.get<string>("buildOption");
         let processArg: string[] = [buildOption];
 
@@ -54,7 +54,7 @@ export default class ZigCompilerProvider implements vscode.CodeActionProvider {
             processArg.push(element);
         });
 
-        let childProcess = cp.spawn('zig', processArg, undefined);
+        let childProcess = cp.spawn('zen', processArg, undefined);
         if (childProcess.pid) {
             childProcess.stderr.on('data', (data: Buffer) => {
                 decoded += data;

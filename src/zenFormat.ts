@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import { Range, StatusBarItem, TextEdit, OutputChannel, EndOfLine } from 'vscode';
-import { execCmd } from './zigUtil';
+import { execCmd } from './zenUtil';
 
-export class ZigFormatProvider implements vscode.DocumentFormattingEditProvider {
+export class ZenFormatProvider implements vscode.DocumentFormattingEditProvider {
     private _channel: OutputChannel;
 
     constructor(logChannel: OutputChannel) {
@@ -15,7 +15,7 @@ export class ZigFormatProvider implements vscode.DocumentFormattingEditProvider 
         token?: vscode.CancellationToken,
     ): Thenable<TextEdit[]> {
         const logger = this._channel;
-        return zigFormat(document)
+        return zenFormat(document)
             .then(({ stdout }) => {
                 logger.clear();
                 const lastLineId = document.lineCount - 1;
@@ -28,7 +28,7 @@ export class ZigFormatProvider implements vscode.DocumentFormattingEditProvider 
                 return [TextEdit.replace(wholeDocument, stdout), TextEdit.setEndOfLine(EndOfLine.LF)];
             })
             .catch((reason) => {
-                let config = vscode.workspace.getConfiguration('zig');
+                let config = vscode.workspace.getConfiguration('zen');
 
                 logger.clear();
                 logger.appendLine(reason.toString().replace('<stdin>', document.fileName));
@@ -41,7 +41,7 @@ export class ZigFormatProvider implements vscode.DocumentFormattingEditProvider 
 }
 
 // Same as full document formatter for now
-export class ZigRangeFormatProvider implements vscode.DocumentRangeFormattingEditProvider {
+export class ZenRangeFormatProvider implements vscode.DocumentRangeFormattingEditProvider {
     private _channel: OutputChannel;
     constructor(logChannel: OutputChannel) {
         this._channel = logChannel;
@@ -54,7 +54,7 @@ export class ZigRangeFormatProvider implements vscode.DocumentRangeFormattingEdi
         token?: vscode.CancellationToken,
     ): Thenable<TextEdit[]> {
         const logger = this._channel;
-        return zigFormat(document)
+        return zenFormat(document)
             .then(({ stdout }) => {
                 logger.clear();
                 const lastLineId = document.lineCount - 1;
@@ -67,7 +67,7 @@ export class ZigRangeFormatProvider implements vscode.DocumentRangeFormattingEdi
                 return [TextEdit.replace(wholeDocument, stdout), TextEdit.setEndOfLine(EndOfLine.LF)];
             })
             .catch((reason) => {
-                const config = vscode.workspace.getConfiguration('zig');
+                const config = vscode.workspace.getConfiguration('zen');
 
                 logger.clear();
                 logger.appendLine(reason.toString().replace('<stdin>', document.fileName));
@@ -79,15 +79,15 @@ export class ZigRangeFormatProvider implements vscode.DocumentRangeFormattingEdi
     }
 }
 
-function zigFormat(document: vscode.TextDocument) {
-    const config = vscode.workspace.getConfiguration('zig');
-    const zigPath = config.get<string>('zigPath') || 'zig';
+function zenFormat(document: vscode.TextDocument) {
+    const config = vscode.workspace.getConfiguration('zizeng');
+    const zenPath = config.get<string>('zenPath') || 'zen';
 
     const options = {
         cmdArguments: ['fmt', '--stdin'],
-        notFoundText: 'Could not find zig. Please add zig to your PATH or specify a custom path to the zig binary in your settings.',
+        notFoundText: 'Could not find zen. Please add zen to your PATH or specify a custom path to the zen binary in your settings.',
     };
-    const format = execCmd(zigPath, options);
+    const format = execCmd(zenPath, options);
 
     format.stdin.write(document.getText());
     format.stdin.end();
