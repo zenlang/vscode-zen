@@ -3,7 +3,7 @@
     "displayName": "Zen",
     "description": "Language support for the Zen programming language",
     "version": "0.2.2",
-    "publisher": "connectFree Corporation",
+    "publisher": "connectFree",
     "icon": "images/zen-logo.png",
     "license": "MIT",
     "repository": {
