@@ -23,14 +23,84 @@
     },
     {
       "include": "#support"
+    },
+    {
+      "include": "#variables"
     }
   ],
   "repository": {
+    "variables": {
+      "patterns": [
+        {
+          "name": "meta.function.declaration.zen",
+          "patterns": [
+            {
+              "comment": "normal function",
+              "match": "\\b(fn)\\s+([_]*[a-z]+[_a-zA-Z0-9]*)",
+              "captures": {
+                "1": {
+                  "name": "storage.type.function.zen"
+                },
+                "2": {
+                  "name": "entity.name.function.zen"
+                }
+              }
+            },
+            {
+              "comment": "function returns a type",
+              "match": "\\b(fn)\\s+([A-Z][a-zA-Z0-9]*)",
+              "captures": {
+                "1": {
+                  "name": "storage.type.function.zen"
+                },
+                "2": {
+                  "name": "entity.name.type.zen"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "meta.function.call.zen",
+          "patterns": [
+            {
+              "match": "([_]*[a-z]+[_a-zA-Z0-9]*)(?=\\s*\\()",
+              "name": "entity.name.function.zen"
+            },
+            {
+              "match": "([A-Z][a-zA-Z0-9]*)(?=\\s*\\()",
+              "name": "entity.name.type.zen"
+            }
+          ]
+        },
+        {
+          "name": "meta.type.declaration.zen",
+          "patterns": [
+            {
+              "comment": "struct declaration",
+              "match": "\\b(const)\\s+([A-Z][a-zA-Z0-9]*)",
+              "captures": {
+                "1": {
+                  "name": "keyword.default.zen"
+                },
+                "2": {
+                  "name": "entity.name.type.zen"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "keyword.default.zen",
+          "match": "\\b(fn|const|var)\\b"
+        }
+      ]
+    },
     "keywords": {
       "patterns": [
         {
           "name": "keyword.storage.zen",
-          "match": "\\b(const|var|extern|packed|export|pub|noalias|inline|comptime|nakedcc|stdcallcc|volatile|align|linksection|threadlocal|allowzero|vtable)\\b"
+          "match": "\\b(extern|packed|export|pub|noalias|inline|comptime|nakedcc|stdcallcc|volatile|align|linksection|threadlocal|allowzero|vtable|deprecated)\\b"
         },
         {
           "name": "keyword.structure.zen",
@@ -38,14 +108,14 @@
         },
         {
           "name": "keyword.statement.zen",
-          "match": "\\b(break|return|continue|asm|defer|errdefer|unreachable|try|catch|async|await|suspend|resume|cancel)\\b"
+          "match": "\\b(asm|unreachable|try|catch)\\b"
         },
         {
-          "name": "keyword.conditional.zen",
-          "match": "\\b(if|else|switch|and|or|orelse)\\b"
+          "name": "keyword.control.flow.zen",
+          "match": "\\b(break|return|continue|if|else|switch|and|or|orelse|async|await|suspend|resume|cancel|defer|errdefer)\\b"
         },
         {
-          "name": "keyword.repeat.zen",
+          "name": "keyword.control.repeat.zen",
           "match": "\\b(while|for)\\b"
         },
         {
@@ -58,7 +128,7 @@
         },
         {
           "name": "keyword.default.zen",
-          "match": "\\b(fn|use|usingnamespace|test)\\b"
+          "match": "\\b(use|usingnamespace|test)\\b"
         },
         {
           "name": "keyword.type.zen",
@@ -116,7 +186,7 @@
       "patterns":[
         {
           "name": "string.quoted.double.zen",
-          "begin": "c?\"",
+          "begin": "\"",
           "end": "\"",
           "patterns": [
             {
@@ -126,7 +196,7 @@
         },
         {
           "name": "string.multiline.zen",
-          "begin": "c?\\\\\\\\",
+          "begin": "\\\\\\\\",
           "end": "$"
         },
         {
