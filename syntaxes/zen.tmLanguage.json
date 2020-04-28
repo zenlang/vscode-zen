@@ -78,7 +78,7 @@
           "patterns": [
             {
               "comment": "struct declaration",
-              "match": "\\b(const)\\s+([A-Z][a-zA-Z0-9]*)",
+              "match": "\\b(const)\\s+([A-Z][_a-zA-Z0-9]*)",
               "captures": {
                 "1": {
                   "name": "keyword.default.zen"
@@ -100,7 +100,7 @@
       "patterns": [
         {
           "name": "keyword.storage.zen",
-          "match": "\\b(extern|packed|export|pub|noalias|inline|comptime|nakedcc|stdcallcc|volatile|align|linksection|threadlocal|allowzero|vtable|deprecated)\\b"
+          "match": "\\b(extern|packed|export|pub|noalias|inline|noinline|comptime|volatile|align|linksection|callconv|threadlocal|allowzero|vtable|anyframe|deprecated)\\b"
         },
         {
           "name": "keyword.structure.zen",
@@ -112,7 +112,7 @@
         },
         {
           "name": "keyword.control.flow.zen",
-          "match": "\\b(break|return|continue|if|else|switch|and|or|orelse|async|await|suspend|resume|cancel|defer|errdefer)\\b"
+          "match": "\\b(break|return|continue|if|else|switch|and|or|orelse|async|noasync|await|suspend|resume|cancel|defer|errdefer)\\b"
         },
         {
           "name": "keyword.control.repeat.zen",
@@ -128,11 +128,11 @@
         },
         {
           "name": "keyword.default.zen",
-          "match": "\\b(use|usingnamespace|test)\\b"
+          "match": "\\b(usingnamespace|test)\\b"
         },
         {
           "name": "keyword.type.zen",
-          "match": "\\b(bool|void|noreturn|type|error|anyerror|promise)\\b"
+          "match": "\\b(bool|void|noreturn|type|anytype|error|anyerror|promise)\\b"
         },
         {
           "name": "keyword.type.integer.zen",
