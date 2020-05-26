@@ -132,7 +132,7 @@
         },
         {
           "name": "keyword.type.zen",
-          "match": "\\b(bool|void|noreturn|type|anytype|error|anyerror|promise)\\b"
+          "match": "\\b(bool|void|noreturn|type|anytype|error|anyerror)\\b"
         },
         {
           "name": "keyword.type.integer.zen",
