@@ -92,7 +92,7 @@
         },
         {
           "name": "keyword.default.zen",
-          "match": "\\b(fn|const|var)\\b"
+          "match": "\\b(fn|const|var|mut)\\b"
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         {
           "name": "keyword.control.flow.zen",
-          "match": "\\b(break|return|continue|if|else|switch|and|or|orelse|async|noasync|await|suspend|resume|cancel|defer|errdefer)\\b"
+          "match": "\\b(break|return|continue|if|else|switch|and|or|orelse|async|nosuspend|await|suspend|resume|cancel|defer|errdefer)\\b"
         },
         {
           "name": "keyword.control.repeat.zen",
