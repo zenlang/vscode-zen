@@ -1,3 +1,16 @@
+## 0.8.20200609
+ - Update version number to match latest supported zen compiler
+ - improved syntax highlighting!
+ - added new keywords
+   - anyframe
+   - callconv
+   - deprecated
+   - mut
+   - noinline
+   - nosuspend
+   - vtable
+ - removed unused keywords
+
 ## 0.2.2
  - Add new usingnamespace keyword
 

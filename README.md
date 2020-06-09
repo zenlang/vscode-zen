@@ -6,11 +6,11 @@
 
 ## Features
 
- - syntax highlighting
- - basic compiler linting
- - automatic formatting
+ - Syntax Highlighting
+ - Basic compiler linting
+ - Automatic formatting
 
-## Automatic Formatting
+## How to enable Automatic Formatting
 
 To enable automatic formatting add the `zen` command to your `PATH`, or
-modify the `Zen Path` setting to point to the `zen` binary.
+modify the `Zen Path` setting from within VSCode to point to the `zen` binary.
